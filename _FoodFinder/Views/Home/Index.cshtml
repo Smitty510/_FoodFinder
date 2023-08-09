@@ -1,0 +1,11 @@
+﻿@model string
+
+<form method="post" class="search-form">
+    <input type="text" name="foodItem" placeholder="How may I tease you and make you suffer??????" required>
+</form>
+@if (!string.IsNullOrEmpty(Model))
+{
+    <div>
+        <img src="@Model" alt="Food Image">
+    </div>
+}
