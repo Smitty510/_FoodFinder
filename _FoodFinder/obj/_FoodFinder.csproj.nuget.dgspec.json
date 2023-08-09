@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Food Finder\\_FoodFinder\\_FoodFinder.csproj": {}
+    "C:\\Users\\psmit\\OneDrive\\Desktop\\Repos\\Food Finder\\_FoodFinder\\_FoodFinder.csproj": {}
   },
   "projects": {
-    "E:\\Food Finder\\_FoodFinder\\_FoodFinder.csproj": {
+    "C:\\Users\\psmit\\OneDrive\\Desktop\\Repos\\Food Finder\\_FoodFinder\\_FoodFinder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Food Finder\\_FoodFinder\\_FoodFinder.csproj",
+        "projectUniqueName": "C:\\Users\\psmit\\OneDrive\\Desktop\\Repos\\Food Finder\\_FoodFinder\\_FoodFinder.csproj",
         "projectName": "_FoodFinder",
-        "projectPath": "E:\\Food Finder\\_FoodFinder\\_FoodFinder.csproj",
+        "projectPath": "C:\\Users\\psmit\\OneDrive\\Desktop\\Repos\\Food Finder\\_FoodFinder\\_FoodFinder.csproj",
         "packagesPath": "C:\\Users\\psmit\\.nuget\\packages\\",
-        "outputPath": "E:\\Food Finder\\_FoodFinder\\obj\\",
+        "outputPath": "C:\\Users\\psmit\\OneDrive\\Desktop\\Repos\\Food Finder\\_FoodFinder\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\psmit\\AppData\\Roaming\\NuGet\\NuGet.Config",

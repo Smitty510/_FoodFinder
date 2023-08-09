@@ -5,8 +5,13 @@ namespace FoodImageApp.Controllers
 {
     public class HomeController : Controller
     {
-        private const string apiKey = "3b4365a9ca034564a8a8c79414c304b8";
         private static readonly HttpClient client = new HttpClient();
+        private readonly IConfiguration _configuration;
+
+        public HomeController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         [HttpGet]
         public IActionResult Index()
@@ -29,16 +34,26 @@ namespace FoodImageApp.Controllers
 
         private async Task<string> FetchFoodImageAsync(string query)
         {
+            string apiKey = _configuration["AppSettings:ApiKey"];
             string apiUrl = $"https://api.spoonacular.com/food/search?query={query}&number=1&apiKey={apiKey}";
 
             HttpResponseMessage response = await client.GetAsync(apiUrl);
 
             if (response.IsSuccessStatusCode)
             {
-                using var responseStream = await response.Content.ReadAsStreamAsync();
+                string responseContent = await response.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                var result = await JsonSerializer.DeserializeAsync<FoodSearchResult>(responseStream, options);
-                return result?.SearchResults[0]?.Results[0]?.Image;
+                var result = JsonSerializer.Deserialize<FoodSearchResult>(responseContent, options);
+
+                if (result?.SearchResults[0]?.Results.Length > 0)
+                {
+                    return result.SearchResults[0].Results[0].Image;
+                }
+                else
+                {
+                    // No results found, return a message
+                    return "No image available for this query.";
+                }
             }
             else
             {

@@ -6,11 +6,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
         }
 
         .container {
             text-align: center;
-            margin-top: 100px;
+            margin-top: 50px;
         }
 
         h1 {
@@ -20,6 +22,9 @@
         .search-form {
             max-width: 320px;
             margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         input[type="text"] {
@@ -29,12 +34,22 @@
             border-radius: 4px;
             font-size: 14px;
         }
+
+        .image-container {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>The Wonderfully Amazeballs Food Teaser</h1>
         @RenderBody()
+        <div class="image-container">
+            @if (!string.IsNullOrEmpty(Model))
+            {
+                <img src="@Model" alt="No Image Available, But Use Your Imagination to Torture Yourself">
+            }
+        </div>
     </div>
 </body>
 </html>
